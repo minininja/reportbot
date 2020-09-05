@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: reportbot
-          image: mikej091/reportbot:0.1.1
+          image: mikej091/reportbot:0.1.2
           imagePullPolicy: Always
           volumeMounts:
             - name: config
