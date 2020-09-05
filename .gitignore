@@ -1,0 +1,8 @@
+
+.idea/
+configMap.yaml
+dependency-reduced-pom.xml
+*.iml
+secret.yaml
+target/*
+test.yaml

@@ -1,7 +1,5 @@
 servers:
 
-  # https://docs.google.com/forms/u/0/d/e/1FAIpQLSeOYk6BICHRkdscVlLS8DglTPRR3N33UHMg6Cf12V-MtHsKrQ/formResponse
-
   # test server
   '579479529966403595':
     deleteOnSubmit: true

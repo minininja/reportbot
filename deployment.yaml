@@ -18,6 +18,9 @@ spec:
         - name: reportbot
           image: mikej091/reportbot:0.1.1
           imagePullPolicy: Always
+          volumeMounts:
+            - name: config
+              mountPath: config.yaml
           env:
             - name: token
               valueFrom:
@@ -26,3 +29,7 @@ spec:
                   key: token
             - name: activation
               value: $report
+      volumes:
+        - name: config
+          configMap:
+            name: reportbotconfig
