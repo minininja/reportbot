@@ -1,0 +1,8 @@
+servers:
+
+  '1':
+    raw: rawField
+    url: 'http://test.com'
+    mapping:
+      - first: second
+

@@ -1,0 +1,24 @@
+servers:
+
+  # https://docs.google.com/forms/u/0/d/e/1FAIpQLSeOYk6BICHRkdscVlLS8DglTPRR3N33UHMg6Cf12V-MtHsKrQ/formResponse
+
+  # test server
+  '579479529966403595':
+    deleteOnSubmit: true
+    url: https://ptsv2.com/t/nk348-1599331366/post
+    rawField: entry.401412259
+    authorField: entry.1818793139
+    surveyFields:
+      REPORTTYPE: entry.1818793139
+      SHIP: entry.1686036257
+      OVERCARGO: entry.473530607
+      ZERONODE: entry.1232389357
+      PMRECEIVED: entry.1795594988
+      REPORTER: entry.2118421468
+      WHO: entry.522897513
+      STATION: entry.447414049
+      WHERE: entry.1405079330
+      LOSSES: entry.1279208427
+
+
+

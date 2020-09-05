@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reportbot-deployment
+  labels:
+    app: reportbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reportbot
+  template:
+    metadata:
+      labels:
+        app: reportbot
+    spec:
+      containers:
+        - name: reportbot
+          image: mikej091/reportbot:0.1.1
+          imagePullPolicy: Always
+          env:
+            - name: token
+              valueFrom:
+                secretKeyRef:
+                  name: reportbotsecrets
+                  key: token
+            - name: activation
+              value: $report
