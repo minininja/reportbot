@@ -14,13 +14,17 @@ spec:
       labels:
         app: reportbot
     spec:
+      volumes:
+        - name: config
+          configMap:
+            name: reportbotconfig
       containers:
         - name: reportbot
           image: mikej091/reportbot:0.1.2
           imagePullPolicy: Always
           volumeMounts:
             - name: config
-              mountPath: config.yaml
+              mountPath: /config
           env:
             - name: token
               valueFrom:
@@ -29,7 +33,5 @@ spec:
                   key: token
             - name: activation
               value: $report
-      volumes:
-        - name: config
-          configMap:
-            name: reportbotconfig
+            - name: config
+              value: /config/config.yaml
