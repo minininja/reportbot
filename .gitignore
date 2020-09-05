@@ -1,8 +1,8 @@
 
 .idea/
-configMap.yaml
+src/main/k8s/configMap.yaml
 dependency-reduced-pom.xml
 *.iml
-secret.yaml
+src/main/k8s/secret.yaml
 target/*
 test.yaml
