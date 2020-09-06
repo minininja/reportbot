@@ -74,6 +74,20 @@ public class Config {
             this.value = value;
         }
 
+        public Integer asInt() {
+            return asInt(null);
+        }
+
+        public Integer asInt(Integer def) {
+            if (value instanceof Integer) {
+                return (Integer) value;
+            } else if (value instanceof String) {
+                return Integer.valueOf((String) value);
+            } else {
+                return def;
+            }
+        }
+
         public String getPath() {
             return path;
         }

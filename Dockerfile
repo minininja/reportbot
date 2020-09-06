@@ -18,7 +18,7 @@ RUN (cd /app && /usr/share/maven/bin/mvn install)
 FROM arm32v7/maven:3-adoptopenjdk-14
 RUN apt update -q
 RUN apt install openjdk-11-jdk-headless -y
-ADD src/main/bin go.sh
-RUN chmod 0755 go.sh
+#ADD src/main/bin go.sh
+#RUN chmod 0755 go.sh
 COPY --from=builder /app/target/ReportBot-1.0-SNAPSHOT.jar /.
-CMD ["./go.sh"]
+CMD ["java", "-Xmx16m", "-jar", "ReportBot-1.0-SNAPSHOT.jaR"]
