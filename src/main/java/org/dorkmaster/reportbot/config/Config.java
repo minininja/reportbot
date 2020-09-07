@@ -93,6 +93,13 @@ public class Config {
         }
 
         public String asString() {
+            return asString(null);
+        }
+
+        public String asString(String def) {
+            if (null == value) {
+                return def;
+            }
             return (String) value;
         }
 

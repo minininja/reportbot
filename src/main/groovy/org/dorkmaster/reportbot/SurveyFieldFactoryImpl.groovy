@@ -9,7 +9,6 @@ class SurveyFactoryImpl implements SurveyFactory {
 
     Config config
 
-
     SurveyFactoryImpl(Config config) {
         this.config = config
     }
