@@ -1,0 +1,64 @@
+@startuml
+
+participant user as u
+participant discord as d
+participant reportbot as rb
+
+participant ReportContextContainer as rcc
+participant ReportContext as rc
+participant SurveyFactory as sf
+participant SubmitReport as sr
+
+participant reportFactory as rf
+participant survey as s
+
+u -> d : message(content: '$report')
+d -> rb : message(content: '$report')
+
+rb -> rcc : has(guildId, user)
+alt context already exists, should we abort?
+    rb -> rcc : abortQuestion(guildId)
+
+    rb -> d : pm(abortQuestion)
+end alt
+
+alt no context exists
+    rb -> rcc : create(guildId, user)
+    rb -> rcc : get(guildId, user).nextQuestion()
+    note right
+      we will assume there's at least one question
+    end note
+    rb -> d : message(question)
+end alt
+
+alt pm messages
+    u -> d : message
+    d -> rb : message
+    rb -> rcc : get(user)
+
+    alt check for abort state
+        rb -> rc : isAbortState && isAborted(message)
+        rb -> rcc : abort(reportContext)
+    end alt
+
+    alt otherwise
+        rb -> rc : answer(message)
+        rb -> rc : hasNextQuestion()
+
+        alt more questions
+            rb -> rc : nextQuestion()
+            rb -> d : question
+        end alt
+        alt last question
+            rb -> rc : submit
+            rc -> rcc : submit(reportContext)
+            rcc -> sf : processForSubmit(questionsAnswers)
+            rcc -> sr : submitReport(report)
+            note left
+                at this point we'd also remove the report context from the container
+            end note
+        end alt
+    end alt
+end alt
+
+@enduml
