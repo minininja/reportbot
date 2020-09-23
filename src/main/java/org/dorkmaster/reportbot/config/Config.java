@@ -121,5 +121,9 @@ public class Config {
         public boolean isNull() {
             return value == null;
         }
+
+        public List asList() {
+            return (List) value;
+        }
     }
 }

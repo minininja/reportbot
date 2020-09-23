@@ -15,8 +15,8 @@ participant survey as s
 u -> d : message(content: '$report')
 d -> rb : message(content: '$report')
 
-rb -> rcc : has(guildId, user)
-alt context already exists, should we abort?
+rb -> rcc : has(user)
+alt context already exists, send them a message to wrap that one up first
     rb -> rcc : abortQuestion(guildId)
 
     rb -> d : pm(abortQuestion)

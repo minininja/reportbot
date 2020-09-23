@@ -21,4 +21,4 @@ RUN apt install openjdk-11-jdk-headless -y
 #ADD src/main/bin go.sh
 #RUN chmod 0755 go.sh
 COPY --from=builder /app/target/ReportBot-1.0-SNAPSHOT.jar /.
-CMD ["java", "-Xmx64m", "-jar", "ReportBot-1.0-SNAPSHOT.jar"]
+CMD ["java", "-Xmx80m", "-jar", "ReportBot-1.0-SNAPSHOT.jar"]

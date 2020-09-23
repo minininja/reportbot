@@ -5,4 +5,9 @@ servers:
     url: 'http://test.com'
     mapping:
       - first: second
+    automaton:
+      questions:
+        - What is your name?
+        - What is your favorite color?
+        - What is the airspeed of a laden swallow?
 
